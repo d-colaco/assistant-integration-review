@@ -1,0 +1,22 @@
+%%{init: {"flowchart": {"nodeSpacing": 25, "rankSpacing": 45}}}%%
+flowchart LR
+    subgraph assistant["Assistant (obeys every instruction it reads)"]
+        A["Scripted assistant<br/>or a local model"]
+    end
+    G{{"Gateway<br/>pins descriptions,<br/>tracks tier read"}}
+    subgraph desk["Desk server (weak or hardened)"]
+        T["7 MCP tools"]
+        R["Rules: keys, tiers, proposals,<br/>approval policy, caps, audit"]
+    end
+    B["Board server<br/>public, third party"]
+    D[("Documents<br/>T0 public / T1 internal / T2 confidential")]
+    O["Operator<br/>keys, revocation,<br/>person approval"]
+    P["Planted text:<br/>ticket, result or<br/>tool description"]
+
+    P -. steers .-> A
+    A -->|"tool calls"| G
+    G -->|"calls within the key's scope"| T
+    G -->|"post_note (T0 write)"| B
+    T --> R
+    R -->|"read / proposals"| D
+    O -->|"not an MCP tool"| R

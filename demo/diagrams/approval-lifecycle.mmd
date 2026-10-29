@@ -1,0 +1,10 @@
+flowchart TD
+    P["propose_change<br/>(needs the propose grant)"] --> Q["Proposal: pending<br/>diff shown, expires in one hour"]
+    Q --> C{"approve called<br/>by a key"}
+    C -->|"no approve grant"| X1["Refused"]
+    C -->|"its own proposal,<br/>no approve_own grant"| X2["Refused"]
+    C -->|"after expiry"| X3["Expired"]
+    C -->|"high-risk path"| H["Held: stays pending<br/>for a person"]
+    C -->|"low-risk path"| A["Applied<br/>approver recorded as key"]
+    H --> PA["Person approves"]
+    PA --> B["Applied<br/>approver recorded as person"]

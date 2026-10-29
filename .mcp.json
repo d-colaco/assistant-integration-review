@@ -1,0 +1,102 @@
+{
+  "mcpServers": {
+    "desk-weak-reader": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "weak"
+      ],
+      "env": {
+        "DESK_KEY": "reader",
+        "PYTHONPATH": "src"
+      }
+    },
+    "desk-weak-approver": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "weak"
+      ],
+      "env": {
+        "DESK_KEY": "approver",
+        "PYTHONPATH": "src"
+      }
+    },
+    "desk-hardened-reader": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "hardened"
+      ],
+      "env": {
+        "DESK_KEY": "reader",
+        "PYTHONPATH": "src"
+      }
+    },
+    "desk-hardened-approver": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "hardened"
+      ],
+      "env": {
+        "DESK_KEY": "approver",
+        "PYTHONPATH": "src"
+      }
+    },
+    "desk-hardened-selfapprover": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "hardened"
+      ],
+      "env": {
+        "DESK_KEY": "selfapprover",
+        "PYTHONPATH": "src"
+      }
+    },
+    "desk-weak-selfapprover": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "weak"
+      ],
+      "env": {
+        "DESK_KEY": "selfapprover",
+        "PYTHONPATH": "src"
+      }
+    },
+    "desk-hardened-policy_self": {
+      "type": "stdio",
+      "command": ".venv/bin/python",
+      "args": [
+        "-m",
+        "dclabagent",
+        "serve",
+        "hardened"
+      ],
+      "env": {
+        "DESK_KEY": "policy_self",
+        "PYTHONPATH": "src"
+      }
+    }
+  }
+}
